@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\FuncionarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,22 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ClienteController::class, 'showHome']);
+Route::get('/cadastroCliente', [ClienteController::class, 'showFormCadastroCliente']);
+Route::get('/cadastroFuncionario', [FuncionarioController::class, 'showFormCadastroFuncionario']);
 
-Route::get('/clientes', function() {
-    return view('clientes');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/funcionarios', function() {
-    return view('funcionarios');
-});
-
-Route::get('/quartos', function() {
-    return view('quartos');
-});
-
-Route::get('/reservas', function() {
-    return view('reservas');
-});
+// Route::get('/home', function() {
+//     return view('home');
+// });

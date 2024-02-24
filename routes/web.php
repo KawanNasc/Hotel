@@ -15,9 +15,12 @@ use App\Http\Controllers\FuncionarioController;
 |
 */
 
-Route::get('/', [ClienteController::class, 'showHome']);
-Route::get('/cadastroCliente', [ClienteController::class, 'showFormCadastroCliente']);
-Route::get('/cadastroFuncionario', [FuncionarioController::class, 'showFormCadastroFuncionario']);
+Route::get('/', [ClienteController::class, 'showHome'])->name('home');
+Route::get('/cadastroCliente', [ClienteController::class, 'showFormCadastroCliente'])->name('formCadastroCliente');
+Route::get('/cadastroFuncionario', [FuncionarioController::class, 'showFormCadastroFuncionario'])->name('formCadastroFuncionario');
+
+Route::post('/cadastroCliente', [ClienteController::class, 'cadastrarCliente'])->name('enviaBancoCliente');
+Route::post('/cadastroFuncionario',[FuncionarioController::class, 'cadastrarFuncionario'])->name('enviaBancoFuncionario');
 
 // Route::get('/', function () {
 //     return view('welcome');

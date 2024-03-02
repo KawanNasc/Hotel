@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('failed_jobs', function (Blueprint $table) {
-            $table->id();
-            $table->string('uuid')->unique();
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
+        Schema::create('failed_jobs', function (Blueprint $tabela) {
+            $tabela->id();
+            $tabela->string('uuid')->unique();
+            $tabela->text('connection');
+            $tabela->text('queue');
+            $tabela->longText('payload');
+            $tabela->longText('exception');
+            $tabela->timestamp('failed_at')->useCurrent();
         });
     }
 

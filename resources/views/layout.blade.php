@@ -33,10 +33,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{'/cadastroCliente'}}"> Cadastro </a> </li>
-                                <li><a class="dropdown-item" href="#"> Pesquisa </a> </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#"> Alteração </a> </li>
-                                <li><a class="dropdown-item" href="#"> Exclusão </a> </li>
+                                <li><a class="dropdown-item" href="{{'/gerenciaCliente'}}"> Gerenciar </a> </li>
                             </ul>
                             </li>
 
@@ -46,10 +43,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{'/cadastroFuncionario'}}"> Cadastro </a> </li>
-                                <li><a class="dropdown-item" href="#"> Pesquisa </a> </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#"> Alteração </a> </li>
-                                <li><a class="dropdown-item" href="#"> Exclusão </a> </li>
+                                <li><a class="dropdown-item" href="{{'/gerenciaFuncionario'}}"> Gerenciar </a> </li>
                             </ul>
                             </li>
 
@@ -59,10 +53,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{'/cadastroQuarto'}}"> Cadastro </a> </li>
-                                <li><a class="dropdown-item" href="#"> Pesquisa </a> </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#"> Alteração </a> </li>
-                                <li><a class="dropdown-item" href="#"> Exclusão </a> </li>
+                                <li><a class="dropdown-item" href="{{'/gerenciaQuarto'}}"> Gerenciar </a> </li>
                             </ul>
                             </li>
 
@@ -72,10 +63,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{'/cadastroReserva'}}"> Cadastro </a> </li>
-                                <li><a class="dropdown-item" href="#"> Pesquisa </a> </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#"> Alteração </a> </li>
-                                <li><a class="dropdown-item" href="#"> Exclusão </a> </li>
+                                <li><a class="dropdown-item" href="{{'/gerenciaReserva'}}"> Gerenciar </a> </li>
                             </ul>
                             </li>
                         </ul>

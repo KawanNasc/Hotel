@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateQuartoRequest;
 
 class QuartoController extends Controller
 {
+    
     public function showHome() { return view('home'); }
 
     public function showFormCadastroQuarto(Request $request) { return view('formCadastroQuarto'); }
@@ -28,4 +29,7 @@ class QuartoController extends Controller
         return Redirect::route('home');
         
     }
+
+    public function showFormGerenciaQuarto() { return view('formGerenciaQuarto'); }
+
 }

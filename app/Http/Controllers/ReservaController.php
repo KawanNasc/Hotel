@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateReservaRequest;
 
 class ReservaController extends Controller
 {
+
     public function showHome(Request $request) { return view('home'); }
 
     public function showFormCadastroReserva(Request $request) { return view('formCadastroReserva'); }
@@ -32,4 +33,7 @@ class ReservaController extends Controller
         return Redirect::route('home');
 
     }
+
+    public function showFormGerenciaReserva() { return view('formGerenciaReserva'); }
+
 }

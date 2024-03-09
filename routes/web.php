@@ -28,6 +28,16 @@ Route::post('/cadastroFuncionario', [FuncionarioController::class, 'cadastrarFun
 Route::post('/cadastroQuarto', [QuartoController::class, 'cadastrarQuarto'])->name('enviaBancoQuarto');
 Route::post('/cadastroReserva', [ReservaController::class, 'cadastrarReserva'])->name('enviaBancoReserva');
 
+Route::get('/gerenciaCliente', [ClienteController::class, 'showFormGerenciaCliente'])->name('formGerenciaCliente');
+Route::get('/gerenciaFuncionario', [FuncionarioController::class, 'showFormGerenciaFuncionario'])->name('formGerenciaFuncionario');
+Route::get('/gerenciaQuarto', [QuartoController::class, 'showFormGerenciaQuarto'])->name('formGerenciaQuarto');
+Route::get('/gerenciaReserva', [ReservaController::class, 'showFormGerenciaReserva'])->name('formGerenciaReserva');
+
+Route::post('/gerenciaCliente', [ClienteController::class, 'gerenciarCliente'])->name('enviaBancoCliente');
+Route::post('/gerenciaFuncionario', [FuncionarioController::class, 'gerenciarFuncionario'])->name('enviaBancoFuncionario');
+Route::post('/gerenciaQuarto', [QuartoController::class, 'gerenciarQuarto'])->name('enviaBancoQuarto');
+Route::post('/gerenciaReserva', [ReservaController::class, 'gerenciarReserva'])->name('enviaBancoReserva');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });

@@ -8,9 +8,10 @@ use App\Models\Cliente;
 
 class ClienteController extends Controller
 {
+
     public function showHome() { return view('home'); }
 
-    public function showFormCadastroCliente(Request $request) { return view('formCadastroCliente'); }
+    public function showFormCadastroCliente() { return view('formCadastroCliente'); }
 
     public function cadastrarCliente(Request $request) { 
 
@@ -28,4 +29,7 @@ class ClienteController extends Controller
         return Redirect::route('home');
     
     }
+
+    public function showFormGerenciaCliente() { return view('formGerenciaCliente'); }
+
 }

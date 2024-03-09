@@ -18,8 +18,9 @@ return new class extends Migration
             $tabela->integer('idquarto');
             $tabela->enum('situacao', ['Pago', 'Pendente']);
             $tabela->decimal('valorTotal', 8, 2);
-            $tabela->timestamp('dataEntrada');
+            $tabela->date('dataEntrada');
             $tabela->date('dataSaida');
+            $tabela->timestamps();
         });
     }
 

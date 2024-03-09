@@ -14,11 +14,11 @@ class FuncionarioController extends Controller
 
     public function cadastrarFuncionario(Request $request) {
 
+        // dd($request);
+        // dd($dadosValidos);
         $dadosValidos = $request->validate([
-
             'nome' => 'string|required',
             'funcao' => 'string|required'
-
         ]);
 
         Funcionario::create($dadosValidos);

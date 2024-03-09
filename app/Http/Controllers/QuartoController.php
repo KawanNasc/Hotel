@@ -16,6 +16,8 @@ class QuartoController extends Controller
 
     public function cadastrarQuarto(Request $request) {
 
+        // dd($request);
+        // dd($dadosValidos);
         $dadosValidos = $request->validate([
             'numero' => 'integer|required',
             'tipo' => 'string|required',

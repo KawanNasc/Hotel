@@ -25,14 +25,14 @@
     <label for="inputIdQuarto" class="form-label"> Digite o n° do quarto: </label>
     <input type="number" class="form-control" name="idquarto" id="inputIdQuarto" placeholder="1">
   </div>
-  <div class="col-md-12">
+  <!-- <div class="col-md-12">
     <label for="inputTipo" class="form-label"> Tipo: </label>
-    <select name="tipo" id="inputTipo">
+    <select name="tipo" id="inputSituacao">
       <option value="classea"> Classe A </option>
       <option value="comercio"> Comércio </option>
       <option value="suite"> Suíte </option>
     </select>
-  </div>
+  </div> -->
   <div class="col-3">
     <label for="inputValorTotal" class="form-label"> Valor da Diária: </label>
     <input type="number" class="form-control" name="valorTotal" id="inputValorTotal" placeholder="1.000,00">
@@ -47,7 +47,7 @@
   </div>
   <div class="col-md-12">
     <label for="inputTipo" class="form-label"> Situação do pagamento: </label>
-    <select name="tipo" id="inputTipo">
+    <select name="situacao" id="inputTipo">
       <option value="pago"> Pago </option>
       <option value="pendente"> Pendente </option>
     </select>

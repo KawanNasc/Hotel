@@ -16,13 +16,15 @@ class ReservaController extends Controller
 
     public function cadastrarReserva(Request $request) {
 
+        // dd($request);
+        // dd($dadosValidos);
         $dadosValidos = $request->validate([
             'idcliente' => 'integer|required',
             'idfuncionario' => 'integer|required',
             'idquarto' => 'integer|required',
-            'situacao' => 'enum|required',
+            'situacao' => 'required|in:pago,pendente',
             'valorTotal' => 'numeric|required',
-            'dataEntrada' => 'required|date_format:Y-m-d\TH:i',
+            'dataEntrada' => 'date|required',
             'dataSaida' => 'date|required'
         ]);
 

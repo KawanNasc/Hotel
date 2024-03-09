@@ -14,6 +14,8 @@ class ClienteController extends Controller
 
     public function cadastrarCliente(Request $request) { 
 
+        // dd($request);
+        // dd($dadosValidos);
         $dadosValidos = $request->validate([
             // $request->"email" - Objeto
             // 'nome' = $request["nome"], - Array

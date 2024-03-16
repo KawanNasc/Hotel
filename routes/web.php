@@ -38,6 +38,11 @@ Route::post('/gerenciaFuncionario', [FuncionarioController::class, 'gerenciarFun
 Route::post('/gerenciaQuarto', [QuartoController::class, 'gerenciarQuarto'])->name('enviaBancoQuarto');
 Route::post('/gerenciaReserva', [ReservaController::class, 'gerenciarReserva'])->name('enviaBancoReserva');
 
+Route::get('/alterarCliente', [ClienteController::class, 'mostrarGerenciarCliente'])->name('formGerenciaCliente');
+Route::get('/alterarCliente', [ClienteController::class, 'showFormGerenciaCliente'])->name('formGerenciaCliente');
+Route::put('/alterarCliente/{id}', [ClienteController::class, 'alterarCliente'])->name('alterarClienteBanco');
+Route::delete('/apagaCliente/{id]', [ClienteController::class, 'destroyCliente'])->name('apagarClienteBanco');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });

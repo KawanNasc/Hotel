@@ -30,6 +30,34 @@ class ClienteController extends Controller
     
     }
 
-    public function showFormGerenciaCliente() { return view('formGerenciaCliente'); }
+    /* Mostrar cliente por id */
+    public function showFormGerenciaCliente(Request $request) { 
+        
+        $dadosClientes = Cliente::query();
+        $dadosClientes->when($request->nome, function($query, $valor) {
+            $query->where("nome", "like", "%" . $valor . "%");
+        });
+        $dadosClientes = $dadosClientes->get();
 
+        return view('formGerenciaCliente', ['registrosClientes' => $dadosClientes]); }
+
+    /* Mostrar todos os clientes */
+    public function mostrarGerenciarCliente(Request $request) { return view('formGerenciaCliente', ['registrosClientes' => $id]); }
+    
+    public function alterarCliente(Cliente $id, Request $request) { 
+        
+        $dadosValidos = $request->validate([
+            'nome' => 'string|required',
+            'email' => 'string|required',
+            'fone' => 'string|required'
+        ]);
+
+        $id->fill();
+        $id->save();
+        return Redirect::route('home');
+    
+    }
+
+    public function destroyCliente(Cliente $id) { $id->delete(); return Redirect::route('home'); }
+    
 }

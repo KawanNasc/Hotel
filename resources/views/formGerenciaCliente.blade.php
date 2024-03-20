@@ -1,10 +1,11 @@
 @extends('layout')
+
 @section('content')
 <section class="container m-5">
   <h1 class="text-center"> Gerenciar dados do cliente </h1>
   <div class="container m-5">
-    <form class="row g-3" method="post" action="{{route('formGerenciaCliente')}}">
-      
+    <form class="row g-3" method="post" action="{{ route('formGerenciaCliente') }}">
+      @csrf
       <div class="row center">
         <div class="col">
           <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite o nome do cliente" aria-label="First name">
@@ -22,31 +23,31 @@
         <th scope="col"> Nome </th>
         <th scope="col"> E-Mail </th>
         <th scope="col"> Editar </th>
-        <th scope="col"> Excluir</th>
+        <th scope="col"> Excluir </th>
       </tr>
     </thead>
     <tbody>
-      @foreach($registrosClientes as $registrosClientesLoop)
+      @foreach($registrosClientes as $cliente)
       <tr>
-        <th scope="row">{{$registrosClientesLoop->$id}}</th>
-        <td>{{$registrosClientesLoop->$nome}}</td>
-        <td>{{$registrosClientesLoop->$email}}</td>
+        <th scope="row">{{ $cliente->id }}</th>
+        <td>{{ $cliente->nome }}</td>
+        <td>{{ $cliente->email }}</td>
+        <td>{{ $cliente->fone }}</td>
         <td>
-          <a href="">
-            <button type="button" class="btn btn-primary">X</button>
+          <a href="{{ route('alterarClienteBanco', $cliente->id) }}">
+            <button type="button" class="btn btn-primary">Editar</button>
           </a>
         </td>
         <td>
-          <form method="POST" action="{{route('apagarClienteBanco, $registrosClientesLoop->id')}}">
-            @method('delete')
+          <form method="POST" action="{{ route('apagarClienteBanco', $cliente->id) }}">
+            @method('DELETE')
             @csrf
-            <button type="submit" class=""> X </button>
+            <button type="submit" class="btn btn-danger">Excluir</button>
           </form>
         </td>
       </tr>
       @endforeach
     </tbody>
   </table>
-
 </section>
 @endsection

@@ -42,7 +42,11 @@ class ClienteController extends Controller
         return view('formGerenciaCliente', ['registrosClientes' => $dadosClientes]); }
 
     /* Mostrar todos os clientes */
-    public function mostrarGerenciarCliente(Request $request) { return view('formGerenciaCliente', ['registrosClientes' => $id]); }
+    public function mostrarGerenciarCliente() { 
+        $dadosClientes = Cliente::all();
+        return view('formGerenciaCliente', ['registrosClientes' => $dadosClientes]);
+    }
+    
     
     public function alterarCliente(Cliente $id, Request $request) { 
         
@@ -52,7 +56,7 @@ class ClienteController extends Controller
             'fone' => 'string|required'
         ]);
 
-        $id->fill();
+        $id->fill($dadosValidos);
         $id->save();
         return Redirect::route('home');
     

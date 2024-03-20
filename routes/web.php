@@ -33,13 +33,12 @@ Route::get('/gerenciaFuncionario', [FuncionarioController::class, 'showFormGeren
 Route::get('/gerenciaQuarto', [QuartoController::class, 'showFormGerenciaQuarto'])->name('formGerenciaQuarto');
 Route::get('/gerenciaReserva', [ReservaController::class, 'showFormGerenciaReserva'])->name('formGerenciaReserva');
 
-Route::post('/gerenciaCliente', [ClienteController::class, 'gerenciarCliente'])->name('enviaBancoCliente');
-Route::post('/gerenciaFuncionario', [FuncionarioController::class, 'gerenciarFuncionario'])->name('enviaBancoFuncionario');
-Route::post('/gerenciaQuarto', [QuartoController::class, 'gerenciarQuarto'])->name('enviaBancoQuarto');
-Route::post('/gerenciaReserva', [ReservaController::class, 'gerenciarReserva'])->name('enviaBancoReserva');
+Route::post('/gerenciaCliente', [ClienteController::class, 'mostrarGerenciarCliente'])->name('enviaBancoCliente');
+Route::post('/gerenciaFuncionario', [FuncionarioController::class, 'mostrarGerenciarFuncionario'])->name('enviaBancoFuncionario');
+Route::post('/gerenciaQuarto', [QuartoController::class, 'mostrarGerenciarQuarto'])->name('enviaBancoQuarto');
+Route::post('/gerenciaReserva', [ReservaController::class, 'mostrarGerenciarReserva'])->name('enviaBancoReserva');
 
 Route::get('/alterarCliente', [ClienteController::class, 'mostrarGerenciarCliente'])->name('formGerenciaCliente');
-Route::get('/alterarCliente', [ClienteController::class, 'showFormGerenciaCliente'])->name('formGerenciaCliente');
 Route::put('/alterarCliente/{id}', [ClienteController::class, 'alterarCliente'])->name('alterarClienteBanco');
 Route::delete('/apagaCliente/{id]', [ClienteController::class, 'destroyCliente'])->name('apagarClienteBanco');
 

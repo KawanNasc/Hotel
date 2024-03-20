@@ -30,6 +30,8 @@ class ClienteController extends Controller
     
     }
 
+    /* CADASTRO DE CLIENTE FUNCIONANDO APENAS COMENTANDO AS DEMAIS FUNÇÕES DEVIDO AO CONFLITO */
+
     /* Mostrar cliente por id */
     public function showFormGerenciaCliente(Request $request) { 
         

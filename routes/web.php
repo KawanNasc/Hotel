@@ -30,22 +30,28 @@ Route::post('/cadastroFuncionario', [FuncionarioController::class, 'cadastrarFun
 Route::post('/cadastroQuarto', [QuartoController::class, 'cadastrarQuarto'])->name('enviaBancoQuarto');
 Route::post('/cadastroReserva', [ReservaController::class, 'cadastrarReserva'])->name('enviaBancoReserva');
 
-/* CADASTRO DE CLIENTE FUNCIONANDO APENAS COMENTANDO AS DEMAIS ROTAS DEVIDO AO CONFLITO */
 /* Home e mostrar forms de gerenciamento */
-Route::get('/gerenciaCliente', [ClienteController::class, 'showFormGerenciaCliente'])->name('formGerenciaCliente');
-Route::get('/gerenciaFuncionario', [FuncionarioController::class, 'showFormGerenciaFuncionario'])->name('formGerenciaFuncionario');
-Route::get('/gerenciaQuarto', [QuartoController::class, 'showFormGerenciaQuarto'])->name('formGerenciaQuarto');
-Route::get('/gerenciaReserva', [ReservaController::class, 'showFormGerenciaReserva'])->name('formGerenciaReserva');
+Route::get('/gerenciaCliente', [ClienteController::class, 'mostrarGerenciarCliente'])->name('formGerenciaCliente');
+Route::get('/gerenciaFuncionario', [FuncionarioController::class, 'mostrarGerenciarFuncionario'])->name('formGerenciaFuncionario');
+Route::get('/gerenciaQuarto', [QuartoController::class, 'mostrarGerenciarQuarto'])->name('formGerenciaQuarto');
+Route::get('/gerenciaReserva', [ReservaController::class, 'mostrarGerenciarReserva'])->name('formGerenciaReserva');
 
 /* Home e mostrar forms de gerenciamento p/ ID */
-Route::post('/gerenciaCliente', [ClienteController::class, 'mostrarGerenciarCliente'])->name('enviaBancoCliente');
-Route::post('/gerenciaFuncionario', [FuncionarioController::class, 'mostrarGerenciarFuncionario'])->name('enviaBancoFuncionario');
-Route::post('/gerenciaQuarto', [QuartoController::class, 'mostrarGerenciarQuarto'])->name('enviaBancoQuarto');
-Route::post('/gerenciaReserva', [ReservaController::class, 'mostrarGerenciarReserva'])->name('enviaBancoReserva');
+Route::post('/gerenciaCliente', [ClienteController::class, 'showFormGerenciaCliente'])->name('mostrarCliente');
+Route::post('/gerenciaFuncionario', [FuncionarioController::class, 'showFormGerenciaFuncionario'])->name('mostrarFuncionario');
+Route::post('/gerenciaQuarto', [QuartoController::class, 'showFormGerenciaQuarto'])->name('mostrarQuarto');
 
-Route::post('/alterarCliente', [ClienteController::class, 'mostrarGerenciarCliente'])->name('formGerenciaCliente');
-Route::put('/alterarCliente/{id}', [ClienteController::class, 'alterarCliente'])->name('alterarClienteBanco');
+/* Alterar e apagar */
+Route::get('/alterarCliente/{id}', [ClienteController::class, 'alterarCliente'])->name('alterarClienteBanco');
 Route::delete('/apagaCliente/{id]', [ClienteController::class, 'destroyCliente'])->name('apagarClienteBanco');
+
+Route::get('/alterarFuncionario/{id}', [FuncionarioController::class, 'alterarFuncionario'])->name('alterarFuncionarioBanco');
+Route::delete('/apagaFuncionario/{id]', [FuncionarioController::class, 'destroyFuncionario'])->name('apagarFuncionarioBanco');
+
+Route::get('/alterarQuarto/{id}', [QuartoController::class, 'alterarQuarto'])->name('alterarQuartoBanco');
+Route::delete('/apagaQuarto/{id]', [QuartoController::class, 'destroyQuarto'])->name('apagarQuartoBanco');
+
+Route::post('/alterarReserva', [ReservaController::class, 'mostrarGerenciarReserva'])->name('mostrarReserva');
 
 // Route::get('/', function () {
 //     return view('welcome');

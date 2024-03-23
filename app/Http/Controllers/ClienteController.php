@@ -18,11 +18,13 @@ class ClienteController extends Controller
         // dd($request);
         // dd($dadosValidos);
         $dadosValidos = $request->validate([
+
             // $request->"email" - Objeto
             // 'nome' = $request["nome"], - Array
             'nome' => 'string|required',
             'email' => 'string|required',
             'fone' => 'string|required'
+            
         ]);
 
         Cliente::create($dadosValidos);
@@ -32,7 +34,7 @@ class ClienteController extends Controller
 
     /* CADASTRO DE CLIENTE FUNCIONANDO APENAS COMENTANDO AS DEMAIS FUNÇÕES DEVIDO AO CONFLITO */
 
-    /* Mostrar cliente por id */
+    /* Mostrar cliente p/ id */
     public function showFormGerenciaCliente(Request $request) { 
         
         $dadosClientes = Cliente::query();
@@ -41,25 +43,30 @@ class ClienteController extends Controller
         });
         $dadosClientes = $dadosClientes->get();
 
-        return view('formGerenciaCliente', ['registrosClientes' => $dadosClientes]); }
+        return view('formGerenciaCliente', ['registrosClientes' => $dadosClientes]); 
+    
+    }
 
     /* Mostrar todos os clientes */
-    public function mostrarGerenciarCliente() { 
+    public function mostrarGerenciarCliente() {
+
         $dadosClientes = Cliente::all();
         return view('formGerenciaCliente', ['registrosClientes' => $dadosClientes]);
+
     }
     
     
     public function alterarCliente(Cliente $id, Request $request) { 
         
         $dadosValidos = $request->validate([
+
             'nome' => 'string|required',
             'email' => 'string|required',
             'fone' => 'string|required'
+
         ]);
 
-        $id->fill($dadosValidos);
-        $id->save();
+        $id->fill($dadosValidos); $id->save();
         return Redirect::route('home');
     
     }

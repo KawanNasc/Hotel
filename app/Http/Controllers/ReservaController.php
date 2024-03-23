@@ -20,6 +20,7 @@ class ReservaController extends Controller
         // dd($request);
         // dd($dadosValidos);
         $dadosValidos = $request->validate([
+
             'idcliente' => 'integer|required',
             'idfuncionario' => 'integer|required',
             'idquarto' => 'integer|required',
@@ -27,6 +28,7 @@ class ReservaController extends Controller
             'valorTotal' => 'numeric|required',
             'dataEntrada' => 'date|required',
             'dataSaida' => 'date|required'
+
         ]);
 
         Reserva::create($dadosValidos);
@@ -34,6 +36,13 @@ class ReservaController extends Controller
 
     }
 
-    public function showFormGerenciaReserva() { return view('formGerenciaReserva'); }
+    /* CADASTRO DE RESERVAS FUNCIONANDO APENAS COMENTANDO AS DEMAIS FUNÇÕES DEVIDO AO CONFLITO */
+
+    /* Mostrar todas as reservas */
+    public function mostrarGerenciarReserva() { 
+
+        return view('formGerenciaReserva');
+        
+    }
 
 }

@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
 <section class="container m-5">
   <h1 class="text-center"> Gerenciar dados do cliente </h1>
@@ -29,20 +28,20 @@
     <tbody>
       @foreach($registrosClientes as $cliente)
       <tr>
-        <th scope="row">{{ $cliente->id }}</th>
-        <td>{{ $cliente->nome }}</td>
-        <td>{{ $cliente->email }}</td>
-        <td>{{ $cliente->fone }}</td>
+        <td scope="row"> {{ $cliente->id }} </td>
+        <td> {{ $cliente->nome }} </td>
+        <td> {{ $cliente->email }} </td>
+        <td> {{ $cliente->fone }} </td>
         <td>
-          <a href="{{ route('alterarClienteBanco', $cliente->id) }}">
-            <button type="button" class="btn btn-primary">Editar</button>
-          </a>
+          <form method="GET" action="{{ route('alterarClienteBanco', $cliente->id) }}">
+            <button type="submit" class="btn btn-primary"> Editar </button>
+          </form>
         </td>
         <td>
           <form method="POST" action="{{ route('apagarClienteBanco', $cliente->id) }}">
             @method('DELETE')
             @csrf
-            <button type="submit" class="btn btn-danger">Excluir</button>
+            <button type="submit" class="btn btn-danger"> Excluir </button>
           </form>
         </td>
       </tr>

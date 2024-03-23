@@ -9,7 +9,7 @@
     <input type="text" class="form-control" name="nome" id="inputNome">
   </div>
   <div class="col-md-12">
-    <label for="inputPassword4" class="form-label"> Função: </label>
+    <label for="inputFuncao" class="form-label"> Função: </label>
     <input type="password" class="form-control" name="funcao" id="inputFuncao">
   </div>
   <div class="col-12">

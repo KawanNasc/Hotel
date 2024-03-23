@@ -18,8 +18,10 @@ class FuncionarioController extends Controller
         // dd($request);
         // dd($dadosValidos);
         $dadosValidos = $request->validate([
+
             'nome' => 'string|required',
             'funcao' => 'string|required'
+
         ]);
 
         Funcionario::create($dadosValidos);
@@ -27,6 +29,42 @@ class FuncionarioController extends Controller
 
     }
 
-    public function showFormGerenciaFuncionario() { return view('formGerenciaFuncionario'); }
+    /* CADASTRO DE FUNCIONÁRIO FUNCIONANDO APENAS COMENTANDO AS DEMAIS FUNÇÕES DEVIDO AO CONFLITO */
+
+    /* Mostrar funcionário p/ id */
+    public function showFormGerenciaFuncionario(Request $request) { 
+        
+        $dadosFuncionarios = Funcionario::query();
+        $dadosFuncionarios->when($request->nome, function($query, $valor) {
+            $query->where("nome", "like", "%" . $valor . "%");
+        });
+        $dadosFuncionarios = $dadosFuncionarios->get();
+
+        return view('formGerenciaFuncionario', ['registrosFuncionarios' => $dadosFuncionarios]);
+    
+    }
+
+    /* Mostrar todos os funcionários */
+    public function mostrarGerenciarFuncionario() { 
+
+        $dadosFuncionarios = Funcionario::all();
+        return view('formGerenciaFuncionario', ['registrosFuncionarios' => $dadosFuncionarios]);
+
+    }
+
+    public function alterarFuncionario(Funcionario $id, Request $request) { 
+        
+        $dadosValidos = $request->validate([
+
+            'nome' => 'string|required',
+            'funcao' => 'string|required'
+
+        ]);
+
+        $id->fill($dadosValidos); $id->save(); return Redirect::route('home');
+    
+    }
+
+    public function destroyFuncionario(Funcionario $id) { $id->delete(); return Redirect::route('home'); }
     
 }

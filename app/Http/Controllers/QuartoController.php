@@ -20,9 +20,11 @@ class QuartoController extends Controller
         // dd($request);
         // dd($dadosValidos);
         $dadosValidos = $request->validate([
+
             'numero' => 'integer|required',
             'tipo' => 'string|required',
             'valor' => 'numeric|required'
+
         ]);
 
         Quarto::create($dadosValidos);
@@ -30,6 +32,44 @@ class QuartoController extends Controller
         
     }
 
-    public function showFormGerenciaQuarto() { return view('formGerenciaQuarto'); }
+    /* CADASTRO DE QUARTO FUNCIONANDO APENAS COMENTANDO AS DEMAIS FUNÇÕES DEVIDO AO CONFLITO */
+
+    /* Mostrar quarto p/ id */
+    public function showFormGerenciaQuarto(Request $request) { 
+        
+        $dadosQuarto = Quarto::query();
+        $dadosQuarto->when($request->numero, function($query, $valor) {
+            $query->where("numero", "like", "%" . $valor . "%");
+        });
+        $dadosQuarto = $dadosQuarto->get();
+
+        return view('formGerenciaQuarto', ['registrosQuarto' => $dadosQuarto]); 
+    
+    }
+
+    /* Mostrar todos os funcionários */
+    public function mostrarGerenciarQuarto() { 
+
+        $dadosQuarto = Quarto::all();
+        return view('formGerenciaQuarto', ['registrosQuarto' => $dadosQuarto]);
+
+    }
+
+    public function alterarQuarto(Quarto $id, Request $request) { 
+        
+        $dadosValidos = $request->validate([
+
+            'numero' => 'integer|required',
+            'tipo' => 'string|required',
+            'valor' => 'numeric|required'
+            
+        ]);
+
+        $id->fill($dadosValidos); $id->save();
+        return Redirect::route('home');
+    
+    }
+
+    public function destroyQuarto(Quarto $id) { $id->delete(); return Redirect::route('home'); }
 
 }

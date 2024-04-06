@@ -10,7 +10,7 @@
   </div>
   <div class="col-md-12">
     <label for="inputFuncao" class="form-label"> Função: </label>
-    <input type="password" class="form-control" name="funcao" id="inputFuncao">
+    <input type="text" class="form-control" name="funcao" id="inputFuncao">
   </div>
   <div class="col-12">
     <button type="submit" class="btn btn-primary"> Cadastrar </button>

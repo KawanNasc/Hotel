@@ -34,6 +34,14 @@ class QuartoController extends Controller
 
     /* CADASTRO DE QUARTO FUNCIONANDO APENAS COMENTANDO AS DEMAIS FUNÇÕES DEVIDO AO CONFLITO */
 
+    /* Mostrar todos os funcionários */
+    public function mostrarGerenciarQuarto() { 
+
+        $dadosQuarto= Quarto::all();
+        return view('formGerenciaQuarto', ['registrosQuarto' => $dadosQuarto]);
+
+    }
+
     /* Mostrar quarto p/ id */
     public function showFormGerenciaQuarto(Request $request) { 
         
@@ -43,15 +51,8 @@ class QuartoController extends Controller
         });
         $dadosQuarto = $dadosQuarto->get();
 
-        return view('formGerenciaQuarto', ['registrosQuarto' => $dadosQuarto]); 
+        return view('formAlteraQuarto', ['registrosQuarto' => $dadosQuarto]); 
     
-    }
-
-    /* Mostrar todos os funcionários */
-    public function mostrarGerenciarQuarto(Quarto $id) { 
-
-        return view('formAlteraQuarto', ['registrosQuarto' => $id]);
-
     }
 
     public function alterarQuarto(Quarto $id, Request $request) { 

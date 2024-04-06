@@ -1,5 +1,5 @@
-@extends('layout');
-@section('content');
+@extends('layout')
+@section('content')
 
 <section class="container mt-5">
 <form class="row g-3" method="post" action="{{route('enviaBancoQuarto')}}">
@@ -10,10 +10,10 @@
   </div>
   <div class="col-md-12">
     <label for="inputEmail" class="form-label"> Tipo: </label>
-    <select name="tipo" id="inputTipo">
-      <option value="classea"> Classe A </option>
-      <option value="comercio"> Comércio </option>
-      <option value="suite"> Suíte </option>
+    <select name="tipo" id="inputTipo" class="form-control">
+      <option value="Classe A"> Classe A </option>
+      <option value="Comércio"> Comércio </option>
+      <option value="Suíte"> Suíte </option>
     </select>
   </div>
   <div class="col-3">

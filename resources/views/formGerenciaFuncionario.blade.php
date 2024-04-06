@@ -5,7 +5,6 @@
   <div class="container m-5">
     <form class="row g-3" method="post" action="{{ route('formGerenciaFuncionario') }}">
     @csrf
-
       <div class="row center">
         <div class="col">
           <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite o nome do funcionário" aria-label="First name">
@@ -33,9 +32,9 @@
         <td> {{ $funcionario->nome }} </td>
         <td> {{ $funcionario->funcao }} </td>
         <td>
-        <form method="GET" action="{{ route('alterarFuncionarioBanco', $funcionario->id) }}">
+        <a href="{{ route('mostrarFuncionario', $funcionario->id) }}">
             <button type="button" class="btn btn-primary"> Editar </button>
-        </form>
+        </a>
         </td>
         <td>
           <form method="POST" action="{{ route('apagarFuncionarioBanco', $funcionario->id) }}">

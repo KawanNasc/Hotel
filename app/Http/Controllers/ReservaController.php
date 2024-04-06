@@ -11,9 +11,9 @@ use App\Http\Requests\UpdateReservaRequest;
 class ReservaController extends Controller
 {
 
-    public function showHome(Request $request) { return view('home'); }
+    public function showHome() { return view('home'); }
 
-    public function showFormCadastroReserva(Request $request) { return view('formCadastroReserva'); }
+    public function showFormCadastroReserva() { return view('formCadastroReserva'); }
 
     public function cadastrarReserva(Request $request) {
 
@@ -41,8 +41,9 @@ class ReservaController extends Controller
     /* Mostrar todas as reservas */
     public function mostrarGerenciarReserva() { 
 
-        return view('formGerenciaReserva');
-        
+        $dadosReserva= Reserva::all();
+        return view('formGerenciaReserva', ['registrosReserva' => $dadosReserva]);
+
     }
 
 }

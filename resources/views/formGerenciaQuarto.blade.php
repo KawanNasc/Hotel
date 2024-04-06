@@ -4,10 +4,10 @@
   <h1 class="text-center"> Gerenciar dados do quarto </h1>
   <div class="container m-5">
     <form class="row g-3" method="post" action="{{ route('formGerenciaQuarto') }}">
-      
+    @csrf
       <div class="row center">
         <div class="col">
-          <input type="text" id="id" name="nome" class="form-control" placeholder="Digite o nome do quarto" aria-label="First name">
+          <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite o nome do quarto" aria-label="First name">
         </div>
         <div class="col">
           <button type="submit" class="btn btn-info"> Buscar </button>
@@ -34,9 +34,9 @@
         <td> {{ $quarto->tipo }} </td>
         <td> {{ $quarto->valor }} </td>
         <td>
-        <form method="GET" action="{{ route('alterarQuartoBanco', $quarto->id) }}">
+        <a href="{{ route('mostrarQuarto', $quarto->id) }}">
             <button type="button" class="btn btn-primary"> Editar </button>
-        </form>
+        </a>
         </td>
         <td>
           <form method="POST" action="{{ route('apagarQuartoBanco', $quarto->id) }}">

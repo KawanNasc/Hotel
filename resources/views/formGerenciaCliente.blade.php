@@ -34,7 +34,7 @@
         <td> {{ $cliente->email }} </td>
         <td> {{ $cliente->fone }} </td>
         <td>
-          <a href="{{ route('alterarClienteBanco', $cliente->id) }}">
+          <a href="{{ route('mostrarCliente', $cliente->id) }}">
             <button type="submit" class="btn btn-primary"> Editar </button>
           </a>
         </td>

@@ -31,8 +31,16 @@ class FuncionarioController extends Controller
 
     /* CADASTRO DE FUNCIONÁRIO FUNCIONANDO APENAS COMENTANDO AS DEMAIS FUNÇÕES DEVIDO AO CONFLITO */
 
-    /* Mostrar funcionário p/ id */
-    public function showFormGerenciaFuncionario(Request $request) { 
+    /* Mostrar todos os funcionários */
+    public function mostrarGerenciarFuncionario() { 
+
+        $dadosFuncionarios= Funcionario::all();
+        return view('formGerenciaFuncionario', ['registrosFuncionarios' => $dadosFuncionarios]);
+
+    }
+
+     /* Mostrar funcionário p/ id */
+     public function showFormGerenciaFuncionario(Request $request) { 
         
         $dadosFuncionarios = Funcionario::query();
         $dadosFuncionarios->when($request->nome, function($query, $valor) {
@@ -40,15 +48,8 @@ class FuncionarioController extends Controller
         });
         $dadosFuncionarios = $dadosFuncionarios->get();
 
-        return view('formGerenciaFuncionario', ['registrosFuncionarios' => $dadosFuncionarios]);
+        return view('formAlteraFuncionario', ['registrosFuncionarios' => $dadosFuncionarios]);
     
-    }
-
-    /* Mostrar todos os funcionários */
-    public function mostrarGerenciarFuncionario(Funcionario $id) { 
-
-        return view('formAlteraFuncionario', ['registrosFuncionarios' => $id]);
-
     }
 
     public function alterarFuncionario(Funcionario $id, Request $request) { 

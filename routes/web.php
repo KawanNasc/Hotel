@@ -42,14 +42,14 @@ Route::post('/gerenciaFuncionario', [FuncionarioController::class, 'showFormGere
 Route::post('/gerenciaQuarto', [QuartoController::class, 'showFormGerenciaQuarto'])->name('mostrarQuarto');
 
 /* Alterar e apagar */
-Route::get('/alterarCliente/{id}', [ClienteController::class, 'alterarCliente'])->name('alterarClienteBanco');
-Route::delete('/apagaCliente/{id]', [ClienteController::class, 'destroyCliente'])->name('apagarClienteBanco');
+Route::put('/alteraCliente/{id}', [ClienteController::class, 'alterarCliente'])->name('alterarClienteBanco');
+Route::delete('/apagaCliente/{id}', [ClienteController::class, 'destroyCliente'])->name('apagarClienteBanco');
 
-Route::get('/alterarFuncionario/{id}', [FuncionarioController::class, 'alterarFuncionario'])->name('alterarFuncionarioBanco');
-Route::delete('/apagaFuncionario/{id]', [FuncionarioController::class, 'destroyFuncionario'])->name('apagarFuncionarioBanco');
+Route::put('/alteraFuncionario/{id}', [FuncionarioController::class, 'alterarFuncionario'])->name('alterarFuncionarioBanco');
+Route::delete('/apagaFuncionario/{id}', [FuncionarioController::class, 'destroyFuncionario'])->name('apagarFuncionarioBanco');
 
-Route::get('/alterarQuarto/{id}', [QuartoController::class, 'alterarQuarto'])->name('alterarQuartoBanco');
-Route::delete('/apagaQuarto/{id]', [QuartoController::class, 'destroyQuarto'])->name('apagarQuartoBanco');
+Route::put('/alteraQuarto/{id}', [QuartoController::class, 'alterarQuarto'])->name('alterarQuartoBanco');
+Route::delete('/apagaQuarto/{id}', [QuartoController::class, 'destroyQuarto'])->name('apagarQuartoBanco');
 
 Route::post('/alterarReserva', [ReservaController::class, 'mostrarGerenciarReserva'])->name('mostrarReserva');
 

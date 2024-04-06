@@ -48,13 +48,11 @@ class ClienteController extends Controller
     }
 
     /* Mostrar todos os clientes */
-    public function mostrarGerenciarCliente() {
+    public function mostrarGerenciarCliente(Cliente $id) {
 
-        $dadosClientes = Cliente::all();
-        return view('formGerenciaCliente', ['registrosClientes' => $dadosClientes]);
+        return view('formAlteraCliente', ['registrosClientes' => $id]);
 
     }
-    
     
     public function alterarCliente(Cliente $id, Request $request) { 
         

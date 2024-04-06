@@ -48,10 +48,9 @@ class QuartoController extends Controller
     }
 
     /* Mostrar todos os funcionários */
-    public function mostrarGerenciarQuarto() { 
+    public function mostrarGerenciarQuarto(Quarto $id) { 
 
-        $dadosQuarto = Quarto::all();
-        return view('formGerenciaQuarto', ['registrosQuarto' => $dadosQuarto]);
+        return view('formAlteraQuarto', ['registrosQuarto' => $id]);
 
     }
 

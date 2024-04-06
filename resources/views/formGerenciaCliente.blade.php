@@ -21,6 +21,7 @@
         <th scope="col"> Código </th>
         <th scope="col"> Nome </th>
         <th scope="col"> E-Mail </th>
+        <th scope="col"> Telefone </th>
         <th scope="col"> Editar </th>
         <th scope="col"> Excluir </th>
       </tr>
@@ -33,9 +34,9 @@
         <td> {{ $cliente->email }} </td>
         <td> {{ $cliente->fone }} </td>
         <td>
-          <form method="GET" action="{{ route('alterarClienteBanco', $cliente->id) }}">
+          <a href="{{ route('alterarClienteBanco', $cliente->id) }}">
             <button type="submit" class="btn btn-primary"> Editar </button>
-          </form>
+          </a>
         </td>
         <td>
           <form method="POST" action="{{ route('apagarClienteBanco', $cliente->id) }}">

@@ -45,10 +45,9 @@ class FuncionarioController extends Controller
     }
 
     /* Mostrar todos os funcionários */
-    public function mostrarGerenciarFuncionario() { 
+    public function mostrarGerenciarFuncionario(Funcionario $id) { 
 
-        $dadosFuncionarios = Funcionario::all();
-        return view('formGerenciaFuncionario', ['registrosFuncionarios' => $dadosFuncionarios]);
+        return view('formAlteraFuncionario', ['registrosFuncionarios' => $id]);
 
     }
 
